@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            background: linear-gradient(#D2D6DA, #7397B6  );
+            border-radius: 20px;
+            padding: 20px;
+        }
+        [type=button]{
+            background-color: #B8860B;
+            color: white;
+            width: 50%;
+    
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-bottom: 5vh;
+        }
+        [type=number]{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Idealgewichtsrechner</h1>
+
+    <form action="">
+        <label for="height">Körpergröße</label>
+        <input type="number" name="height" id="height">
+
+        <label for="age">Alter</label>
+        <input type="number" name="ager" id="age">
+
+        <div>
+            <input type="radio" name="körperbau" id="breit" checked>
+            <label for="körperbau">Breit</label>
+
+            <input type="radio" name="körperbau" id="schmal">
+            <label for="körperbau">Schmal</label>
+        </div>
+
+        <input type="button" value="Submit" onclick="berechne()">
+        <p id="result"></p>
+    </form>
+    <script>
+        function berechne(){
+            // console.log('work')
+            let height = document.getElementById("height").value
+            let age = document.getElementById("age").value
+            // console.log(height)
+            // console.log(age)
+            let breit = document.getElementById("breit").checked
+            console.log(breit)
+            let schmal = document.getElementById("schmal").checked
+            console.log(schmal)
+
+            let result;
+
+            if(breit == true){
+                result = ((height-100) + (age/10))*.9*.9
+            }
+            else{
+                result = ((height-100) + (age/10))*.9*1.1
+            }
+            document.getElementById("result").innerHTML = `Dein Idealgewicht ist ${result.toFixed(2)}`
+        }
+    </script>
+</body>
+</html>
