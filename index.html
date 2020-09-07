@@ -5,9 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        main{
+            text-align: center;
+            width: 100%;
+            height: 50vh;
+        }
+        h1{
+            text-align: center;
+            width: 100%;
+        }
         form{
             display: flex;
             flex-direction: column;
+            margin: 0 auto;
             width: 30%;
             background: linear-gradient(#D2D6DA, #7397B6  );
             border-radius: 20px;
@@ -16,8 +33,8 @@
         [type=button]{
             background-color: #B8860B;
             color: white;
-            width: 50%;
-    
+            width: 100%;
+            margin-top: 5vh;
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 1em;
@@ -30,26 +47,28 @@
     </style>
 </head>
 <body>
-    <h1>Idealgewichtsrechner</h1>
+    <main>
+        <h1>Idealgewichtsrechner</h1>
+        <form action="">
+            <label for="height">Körpergröße</label>
+            <input type="number" name="height" id="height">
 
-    <form action="">
-        <label for="height">Körpergröße</label>
-        <input type="number" name="height" id="height">
+            <label for="age">Alter</label>
+            <input type="number" name="ager" id="age">
 
-        <label for="age">Alter</label>
-        <input type="number" name="ager" id="age">
+            <div>
+                <input type="radio" name="körperbau" id="breit" checked>
+                <label for="körperbau">Breit</label>
 
-        <div>
-            <input type="radio" name="körperbau" id="breit" checked>
-            <label for="körperbau">Breit</label>
+                <input type="radio" name="körperbau" id="schmal">
+                <label for="körperbau">Schmal</label>
+            </div>
 
-            <input type="radio" name="körperbau" id="schmal">
-            <label for="körperbau">Schmal</label>
-        </div>
-
-        <input type="button" value="Submit" onclick="berechne()">
-        <p id="result"></p>
-    </form>
+            <input type="button" value="Submit" onclick="berechne()">
+            <p id="result"></p>
+        </form>
+    </main>
+    
     <script>
         function berechne(){
             // console.log('work')
